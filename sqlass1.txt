@@ -1,0 +1,188 @@
+-->To create a table with columns name,age,marks:
+
+ >>create table student(name varchar(50),age int,marks float);
+
+Query OK, 0 rows affected (0.0800 sec)
+
+>>desc student;
+
+-------+-------------+------+-----+---------+-------+
+
+| Field | Type        | Null | Key | Default | Extra |
+
++-------+-------------+------+-----+---------+-------+
+
+| name  | varchar(50) | YES  |     | NULL    |       |
+
+| age   | int         | YES  |     | NULL    |       |
+
+| marks | float       | YES  |     | NULL    |       |
+
++-------+-------------+------+-----+---------+-------+
+
+3 rows in set (0.0032 sec)
+
+ 1.add a new column at last(email),middle(lastname),and first(sno):
+ 
+>>alter table student add column(email varchar(100));
+
+Query OK, 0 rows affected (0.1058 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+
+ >>desc student;
+
++-------+--------------+------+-----+---------+-------+
+
+| Field | Type         | Null | Key | Default | Extra |
+
++-------+--------------+------+-----+---------+-------+
+
+| name  | varchar(50)  | YES  |     | NULL    |       |
+
+| age   | int          | YES  |     | NULL    |       |
+
+| marks | float        | YES  |     | NULL    |       |
+
+| email | varchar(100) | YES  |     | NULL    |       |
+
++-------+--------------+------+-----+---------+-------+
+
+4 rows in set (0.0029 sec)
+
+ >> alter table student add column lastname varchar(50) after name;
+
+Query OK, 0 rows affected (0.1981 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+
+ >>desc student;
+
++----------+--------------+------+-----+---------+-------+
+
+| Field    | Type         | Null | Key | Default | Extra |
+
++----------+--------------+------+-----+---------+-------+
+
+| name     | varchar(50)  | YES  |     | NULL    |       |
+
+| lastname | varchar(50)  | YES  |     | NULL    |       |
+
+| age      | int          | YES  |     | NULL    |       |
+
+| marks    | float        | YES  |     | NULL    |       |
+
+| email    | varchar(100) | YES  |     | NULL    |       |
+
++----------+--------------+------+-----+---------+-------+
+
+5 rows in set (0.0052 sec)
+
+ >> alter table student add column sino int first;
+
+Query OK, 0 rows affected (0.1095 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+
+ >>desc student;
+
++----------+--------------+------+-----+---------+-------+
+
+| Field    | Type         | Null | Key | Default | Extra |
+
++----------+--------------+------+-----+---------+-------+
+
+| sino     | int          | YES  |     | NULL    |       |
+
+| name     | varchar(50)  | YES  |     | NULL    |       |
+
+| lastname | varchar(50)  | YES  |     | NULL    |       |
+
+| age      | int          | YES  |     | NULL    |       |
+
+| marks    | float        | YES  |     | NULL    |       |
+
+| email    | varchar(100) | YES  |     | NULL    |       |
+
++----------+--------------+------+-----+---------+-------+
+
+6 rows in set (0.0043 sec)
+
+ 2.rename the column name as first name:
+
+ >> alter table student rename column name to firstname;
+
+ >>desc student;
+
++-----------+--------------+------+-----+---------+-------+
+
+| Field     | Type         | Null | Key | Default | Extra |
+
++-----------+--------------+------+-----+---------+-------+
+
+| sino      | int          | YES  |     | NULL    |       |
+
+| firstname | varchar(50)  | YES  |     | NULL    |       |
+
+| lastname  | varchar(50)  | YES  |     | NULL    |       |
+
+| age       | int          | YES  |     | NULL    |       |
+
+| marks     | float        | YES  |     | NULL    |       |
+
+| email     | varchar(100) | YES  |     | NULL    |       |
+
++-----------+--------------+------+-----+---------+-------+
+
+6 rows in set (0.0052 sec)
+
+3.delete the age column:
+
+>>>alter table student drop column age;
++-----------+--------------+------+-----+---------+-------+
+
+| Field     | Type         | Null | Key | Default | Extra |
+
++-----------+--------------+------+-----+---------+-------+
+
+| sino      | int          | YES  |     | NULL    |       |
+
+| firstname | varchar(50)  | YES  |     | NULL    |       |
+
+| lastname  | varchar(50)  | YES  |     | NULL    |       |
+
+| marks     | float        | YES  |     | NULL    |       |
+
+| email     | varchar(100) | YES  |     | NULL    |       |
+
++-----------+--------------+------+-----+---------+-------+
+
+5 rows in set (0.0033 sec)
+
+ 4.change the marks datatype as char:
+
+ >> alter table student modify column marks char(100);
+
++-----------+--------------+------+-----+---------+-------+
+
+| Field     | Type         | Null | Key | Default | Extra |
+
++-----------+--------------+------+-----+---------+-------+
+
+| sino      | int          | YES  |     | NULL    |       |
+
+| firstname | varchar(50)  | YES  |     | NULL    |       |
+
+| lastname  | varchar(50)  | YES  |     | NULL    |       |
+
+| marks     | char(100)    | YES  |     | NULL    |       |
+
+| email     | varchar(100) | YES  |     | NULL    |       |
+
++-----------+--------------+------+-----+---------+-------+
+
+5 rows in set (0.0036 sec)
+
+ 5.rename the table:
+
+ >>alter table student rename student1;
